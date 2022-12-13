@@ -23,6 +23,10 @@ app.use( '/api/auth', require('./routes/auth') );
 app.use( '/api/events', require('./routes/events') );
 
 
+app.get('*', (res) => {
+    res.sendFile( __dirname + '/public/index.html')
+})
+
 //this Esuchar Peticiones
 app.listen( process.env.PORT , () => {
     console.log(`Servidor corriendo en el puerto ${ process.env.PORT }`)
