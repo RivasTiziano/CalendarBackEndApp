@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const { dbConnection } = require('./db/config');
 const cors = require('cors');
+const path = require('path');
 
 //this Crea servidor express o express app
 const app = express();
@@ -23,9 +24,9 @@ app.use( '/api/auth', require('./routes/auth') );
 app.use( '/api/events', require('./routes/events') );
 
 
-app.get('*', (res) => {
-    res.sendFile( __dirname + '/public/index.html')
-})
+app.get('/*', function(req,res) {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 //this Esuchar Peticiones
 app.listen( process.env.PORT , () => {
