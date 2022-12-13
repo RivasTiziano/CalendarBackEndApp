@@ -159,11 +159,6 @@ const deleteEvents = async( req, res) => {
 
     }
 
-    res.json({
-        ok: true,
-        msg: 'deleteEvents'
-    })
-
 }
 
 
